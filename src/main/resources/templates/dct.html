@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片数字盲水印</title>
+    <style>
+        .border {
+            margin: 50px auto;
+            padding: 20px;
+            width: 500px;
+            height: 200px;
+            border: 1px solid #F00;
+        }
+
+        .explain {
+            margin: 50px auto;
+            padding: 20px;
+            width: 900px;
+            height: 900px;
+            border: 1px solid gray;
+        }
+
+        .border span {
+            color: red;
+        }
+
+        .head {
+            width: 250px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <h1>图片数字盲水印-DCT</h1>
+    <span>*给图片添加看不见的水印</span><br>
+    <span>*一定要512*512的图片</span><br>
+    <span>*一定要512*512的图片</span><br>
+    <span>*一定要512*512的图片</span><br>
+</div>
+<div class="border">
+    <span>不支持中文<br/>请选择PNG、BMP格式的图片，其他格式未尝试。<br/>图片大小4M以内</span>
+    <div>
+        <br/>DCT添加水印：<br/>
+        <form action="/dct" enctype="multipart/form-data" method="post">
+            <input type="file" name="image" placeholder="选择图片"/>
+            <input type="text" name="msg" placeholder="水印内容"/>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <div>
+        <br/>DCT提取水印：<br/>
+        <form action="/idct" enctype="multipart/form-data" method="post">
+            <input type="file" name="image" placeholder="选择图片"/>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</div>
+<div class="explain">
+    提交图片并填写水印内容【DCT】：<br/><br/>
+    <img src="dct1.png" style="width: 400px">获得：<img src="dct3.png" style="width: 400px">
+    ↓<br/>
+    <div style="float: right">
+        <span style="float: right">使用获得的图片提取水印</span><br/>
+        <img src="dct4.png" style="width: 50px"></div>
+    <span style="float: left">使用DCT中间产生图片</span><br/>
+    <img src="dct2.png" style="width: 400px"></div>
+</div>
+</body>
+</html>
